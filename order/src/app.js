@@ -2,8 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const Order = require("./models/order");
 const amqp = require("amqplib");
-const config = require("./config");
-
+const config = require("../config"); // <-- Sửa thành ../ để đi lên một cấp thư mục
 class App {
   constructor() {
     this.app = express();
