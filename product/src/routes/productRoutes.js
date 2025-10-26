@@ -11,7 +11,8 @@ router.get("/", isAuthenticated, productController.getProducts);
 
 //
 // Add :orderId to the path
-//router.get("/id/:orderId", isAuthenticated, productController.getOrderStatus);
+router.get("/:id", isAuthenticated, productController.getProductById);
+
 //router.get("/order-status/:orderId", isAuthenticated, productController.getOrderStatus);
 router.get("/order-status/:orderId", isAuthenticated, productController.getOrderStatus);
 module.exports = router;

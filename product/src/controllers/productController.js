@@ -94,7 +94,32 @@ class ProductController {
     }
     return res.status(200).json(order);
   }
-
+//lay san pham theo Id
+// async getProductsById(req, res, next) {
+//     try {
+//       const token = req.headers.authorization;
+//       if (!token) {
+//         return res.status(401).json({ message: "Unauthorized" });
+//       }
+//       const { ids } = req.body;
+//       const products = await Product.find({ _id: { $in: ids } });
+//       res.status(200).json(products);
+//     } catch (error) {
+//       console.error(error);
+//       res.status(500).json({ message: "Server error" });
+//     }
+//   }
+// Lấy sản phẩm theo ID
+async getProductById(req, res) {
+  try {
+    const product = await Product.findById(req.params.id);
+    if (!product) return res.status(404).json({ message: "Product not found" });
+    res.json(product);
+  } catch (err) {
+    res.status(500).json({ message: "Server error" });
+  }
+}
+// Lấy tất cả sản phẩm
   async getProducts(req, res, next) {
     try {
       const token = req.headers.authorization;
