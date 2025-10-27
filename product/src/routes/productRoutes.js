@@ -9,10 +9,8 @@ router.post("/", isAuthenticated, productController.createProduct);
 router.post("/buy", isAuthenticated, productController.createOrder);
 router.get("/", isAuthenticated, productController.getProducts);
 
-//
 // Add :orderId to the path
-router.get("/:id", isAuthenticated, productController.getProductById);
-
-//router.get("/order-status/:orderId", isAuthenticated, productController.getOrderStatus);
-router.get("/order-status/:orderId", isAuthenticated, productController.getOrderStatus);
+router.get("/id/:id", isAuthenticated, productController.getProductById);
+//get  orderId
+router.get("/order/status/:orderId", isAuthenticated, productController.getOrderStatus);
 module.exports = router;
